@@ -24,7 +24,7 @@ function requestFullScreen(element){
 }
 
 function exitFullScreen(){
-    
+
     if (document.exitFullscreen)
         document.exitFullscreen();
     else if (document.msExitFullscreen)
@@ -33,12 +33,12 @@ function exitFullScreen(){
         document.mozCancelFullScreen();
     else if (document.webkitExitFullscreen)
         document.webkitExitFullscreen();
-    
-    
+
+
 }
 
 function resizeCanvas(){
-    
+
     if (isFullScreen()){
         canvas.resize(screen.width, screen.height);
         calcScaleAttr(screen.width, screen.height);
@@ -49,7 +49,7 @@ function resizeCanvas(){
         canvas.resize(window.innerWidth, window.innerHeight);
         calcScaleAttr(window.innerWidth, window.innerHeight);
     }
-    
+
     Canvas_resized = true;
 }
 
