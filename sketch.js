@@ -4,7 +4,7 @@ var miniGames = [];
 var nuovoColore = "";
 
 
-function preload(){var canvas;
+var canvas;
 var body;
 var miniGames = [];
 var nuovoColore = "";
