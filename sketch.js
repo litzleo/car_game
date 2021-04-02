@@ -74,9 +74,7 @@ async function gameCompleted(success){
         }
     }
 }
-    miniGames.push(gioco_liz);
-    miniGames[gameIndex].loadRes();
-}
+   
 
 function setup() {
 
