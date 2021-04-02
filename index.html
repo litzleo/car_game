@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Evil maze game</title>
+
+    <meta name="robots" content="noindex,nofollow">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.9/addons/p5.sound.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="gioco_liz.js"></script>
+
+    <script src="sketch.js"></script>
+    <script src="screen.js"></script>
+    <!--link rel="stylesheet" type="text/css" href="style.css"-->
+
+    <style type="text/css">
+      .full-bg {
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        background-image: url('pics/grr.png');
+        background-size: cover;
+        left: 50%;
+        margin-left: -250px;
+        top: 50%;
+        margin-top: -250px;
+        display: none;
+        z-index: 999;
+        background-color: red;
+        -webkit-animation:spin 4s linear infinite;
+        -moz-animation:spin 4s linear infinite;
+        animation:spin 4s linear infinite;
+        background-position: 0 50px;
+      }
+
+      @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+      @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+      @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+    </style>
+  <style>
+    html {padding: 0; margin: 0; height: 100vh; width: 100vw;}
+    body {padding: 0; margin: 0; height: 100%; width: 100%;}
+    canvas {display:block;}    /* remove scrollbars */
+    canvas:focus {outline:0;} /* remove blue outline around canvas */
+  </style>
+  </head>
+  <body>
+    <div class="full-bg"></div>
+  </body>
+</html>
