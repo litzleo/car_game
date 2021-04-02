@@ -74,9 +74,6 @@ async function gameCompleted(success){
         }
     }
 }
-    miniGames.push(gioco_tanga);
-    miniGames.push(gioco_ali);
-    miniGames.push(gioco_ferra);
     miniGames.push(gioco_liz);
     miniGames[gameIndex].loadRes();
 }
