@@ -1072,6 +1072,7 @@ var gioco_liz = (function(undefined) {
             if(victoryState)alert("GG, tempo rimanente: "+parseTime(TIME - timer.getElapsedTime()/1000));
             sound.theme.stop();
             alert("RIP");
+            gameCompleted(victoryState);
         }
     };
 
