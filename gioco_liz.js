@@ -1069,9 +1069,9 @@ var gioco_liz = (function(undefined) {
     function finish(victoryState){
     	if(!stop){
         	stop = true;
-            if(victoryState)addVictoryToDb('fiat 600', 'rgb(255, 255, 0)', 'rgb(231, 168, 46)');
+            if(victoryState)alert("GG, tempo rimanente: "+parseTime(TIME - timer.getElapsedTime()/1000));
             sound.theme.stop();
-            setTimeout(gameCompleted(victoryState), 200);
+            salert("RIP");
         }
     };
 
