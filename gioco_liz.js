@@ -648,7 +648,7 @@ var gioco_liz = (function(undefined) {
         this.x = x;
         this.y = y;
         this.c = c;
-        this.PROB = 0.005;
+        this.PROB = 0.007;
         this.supplied = false;
         this.img = createImage(housePixels.width, housePixels.height);
         houses.push(this);
@@ -722,10 +722,31 @@ var gioco_liz = (function(undefined) {
         };
 
         this.render = function(){
-            if(giftSpawnTimer.getElapsedTime() >= GIFT_TIME &&
+            let alreadySpawned = false;
+            let differentColors = 0;
+            let qualcosa = [];
+            for(let i=0;i<gifts.length;i++){
+                if(red(gifts[i].c) == red(this.c) && green(gifts[i].c) == green(this.c) && blue(gifts[i].c) == blue(this.c))
+                    alreadySpawned = true;
+                qualcosa.push(false);
+            }
+            for(let i=0;i<houses.length;i++){
+                if(houses[i].supplied)differentColors++;
+                else{
+                    let exists = 0;
+                    for(let j=0;j<gifts.length;j++){
+                        if(!qualcosa[j] && (red(gifts[j].c) == red(houses[i].c) && green(gifts[j].c) == green(houses[i].c) && blue(gifts[j].c) == blue(houses[i].c))){
+                            qualcosa[j] = true;
+                            differentColors++;
+                        }
+                    }
+                }
+            }
+                if(giftSpawnTimer.getElapsedTime() >= GIFT_TIME &&
                     random() < this.PROB &&
                     gifts.length < MAX_GIFTS &&
-                    !this.supplied){
+                    !this.supplied &&
+                    (!alreadySpawned || differentColors >= 4)){
                 this._spawnGift();
             }
             image(this.img, this.x-this.img.width/2, this.y-this.img.height/2,
@@ -788,7 +809,7 @@ var gioco_liz = (function(undefined) {
         this.vx = v * cos(dir);
         this.vy = v * sin(dir);
         this.vz = v;
-        this.TOLERANCE = 20;
+        this.TOLERANCE = 40;
         this.t = new Timer();
         thrownGifts.push(this);
 
