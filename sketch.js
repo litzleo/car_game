@@ -60,19 +60,12 @@ function sleep(ms) {
 async function gameCompleted(success){
 
     if(success){
-      setTimeout(function() {
-        if(confirm("YOU DID IT! DO YOU WANNA PLAY AGAIN?")) {
-          miniGames[gameIndex].constructor();
-        }
-      }, 1000);
+        confirm("YOU DID IT! DO YOU WANNA PLAY AGAIN?");
+        miniGames[gameIndex].constructor();
     }
     else{
-        if(confirm("RIP, DO YOU WANNA PLAY AGAIN?")) {
-          miniGames[gameIndex].constructor();
-        }
-        else {
-          quitGame();
-        }
+        confirm("RIP, DO YOU WANNA PLAY AGAIN?");
+        miniGames[gameIndex].constructor();
     }
 }
    
@@ -118,35 +111,6 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function gameCompleted(success){
-    var coloreMsg = "HAI SBLOCCATO IL COLORE IN SOVRAIMPRESSIONE";
-
-    if(success){
-      while(nuovoColore == ''){
-      	await sleep(100);
-      }
-      if(nuovoColore == 'nessuno') {
-        coloreMsg = "";
-      }
-      else {
-
-        $('.full-bg').css('background-color', nuovoColore);
-        $('.full-bg').show();
-      }
-      setTimeout(function() {
-        alert("FELICITAZIONI! LEI HA COMPLETATO CON SUCCESSO QUEST'ATTIVITÀ VIDEOLUDICA. " + coloreMsg);
-        quitGame();
-      }, 1000);
-    }
-    else{
-        if(confirm("MI DISP, HAI PERSO. VUOI GIOCARE ANCORA?")) {
-          miniGames[gameIndex].constructor();
-        }
-        else {
-          quitGame();
-        }
-    }
-}
 
 // Riceve il nome del gioco e i due colori ad esso associati
 function addVictoryToDb(gameName, c1, c2) {
