@@ -223,20 +223,20 @@ var gioco_liz = (function(undefined) {
 
             var ascii = function(c){return c.charCodeAt(0) - 32;};
 
-            if(keyIsDown(ascii('s'))){
+            if(keyIsDown(ascii('s')) || keyIsDown(DOWN_ARROW)){
                 this.car.front.a = -ACCELERATION*2/3;
             }
-            else if(keyIsDown(ascii('w'))){
+            else if(keyIsDown(ascii('w')) || keyIsDown(UP_ARROW)){
                 this.car.front.a = ACCELERATION;
             }
             else{
                 this.car.front.a = 0;
             }
 
-            if(keyIsDown(ascii('a')) && !keyIsDown(ascii('d'))){
+            if((keyIsDown(ascii('a'))  || keyIsDown(LEFT_ARROW)) && !(keyIsDown(ascii('d')) || keyIsDown(RIGHT_ARROW))){
                 this.car.front.angle = -PI/3;
             }
-            else if(keyIsDown(ascii('d'))){
+            else if(keyIsDown(ascii('d')) || keyIsDown(RIGHT_ARROW))){
                 this.car.front.angle = PI/3;
             }
             else{
@@ -921,7 +921,7 @@ var gioco_liz = (function(undefined) {
 
         this.getPower = function(){
             this.stopCalc = true;
-            return this.power;
+            return this.power + 0.001;
         };
     };
 
@@ -987,7 +987,7 @@ var gioco_liz = (function(undefined) {
     }
 
     public.draw = function(to_redraw) {
-        sound.theme.setVolume(0.1);
+        sound.theme.setVolume(0.2);
         
         if(timeLastDrawn < new Date().getTime() - 2500)finish(false);
         timeLastDrawn = new Date().getTime();
