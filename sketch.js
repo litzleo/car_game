@@ -61,8 +61,8 @@ async function gameCompleted(success){
 
     if(success){
       setTimeout(function() {
-        alert("REJOICE, YOU HAVE REACHED THE COMPLETION STATE OF THIS INTERACTIVE EXPERIENCE!");
-        quitGame();
+        if(confirm("YOU DID IT! DO YOU WANNA PLAY AGAIN?")) {
+          miniGames[gameIndex].constructor();
       }, 1000);
     }
     else{
