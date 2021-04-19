@@ -47,9 +47,9 @@ function quitGame() {
   window.location.href = "index.html";
 }
 
-function mousePressed(event){
+function mousePressed(){
     if(miniGames[gameIndex].mousePressed !== undefined){
-        miniGames[gameIndex].mousePressed(event);
+        miniGames[gameIndex].mousePressed();
     }
 }
 
