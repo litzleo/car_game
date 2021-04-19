@@ -1090,7 +1090,7 @@ var gioco_liz = (function(undefined) {
     function finish(victoryState){
     	if(!stop){
         	stop = true;
-            let millisecondi = (TIME - timer.getElapsedTime())%1000;
+            let millisecondi =round((TIME - (timer.getElapsedTime()+0.1)/1000)*1000)%1000;
             if(victoryState)alert("GG, tempo rimanente: "+parseTime(TIME - timer.getElapsedTime()/1000)+'.'+millisecondi);
             sound.theme.stop();
             gameCompleted(victoryState);
