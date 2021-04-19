@@ -233,7 +233,7 @@ var gioco_liz = (function(undefined) {
                 this.car.front.a = 0;
             }
 
-            if( ((keyIsDown(ascii('a'))  || keyIsDown(LEFT_ARROW)) && !(keyIsDown(ascii('d')) || keyIsDown(RIGHT_ARROW))){
+            if( (    keyIsDown(ascii('a'))  || keyIsDown(LEFT_ARROW)      ) && !(keyIsDown(ascii('d')) || keyIsDown(RIGHT_ARROW)) ){  
                 this.car.front.angle = -PI/3;
             }
             else if(keyIsDown(ascii('d')) || keyIsDown(RIGHT_ARROW))){
