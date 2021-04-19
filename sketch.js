@@ -63,6 +63,7 @@ async function gameCompleted(success){
       setTimeout(function() {
         if(confirm("YOU DID IT! DO YOU WANNA PLAY AGAIN?")) {
           miniGames[gameIndex].constructor();
+        }
       }, 1000);
     }
     else{
