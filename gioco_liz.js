@@ -1097,22 +1097,21 @@ var gioco_liz = (function(undefined) {
         }
     };
 
-    public.mousePressed = function(event) {
-        if(event.button === 2){
-            new Bullet(seicento.car.front.x, seicento.car.front.y, seicento.car.getDir(), seicento.car.r + 20);
-        } else {
-            var v = slider.getPower();
-            var mx = resizedMouse().x;
-            var my = resizedMouse().y;
+    public.mousePressed = function() {
+        var v = slider.getPower();
+        var mx = resizedMouse().x;
+        var my = resizedMouse().y;
 
-            if(!inventory.isEmpty()){
-                var dir = atan2(my-seicento.car.front.y, mx-seicento.car.front.x);
-                inventory.popGift(seicento.car.front.x, seicento.car.front.y, sqrt(v) + 1, dir);
-            }
+        if(!inventory.isEmpty()){
+            var dir = atan2(my-seicento.car.front.y, mx-seicento.car.front.x);
+            inventory.popGift(seicento.car.front.x, seicento.car.front.y, sqrt(v) + 1, dir);
         }
     };
 
     public.keyPressed = function() {
+        if(keyIsDown(SHIFT)
+           new Bullet(seicento.car.front.x, seicento.car.front.y, seicento.car.getDir(), seicento.car.r + 20);
+        else
         switch(key){
             case ' ':
                 new Bullet(seicento.car.front.x, seicento.car.front.y, seicento.car.getDir(), seicento.car.r + 20);
