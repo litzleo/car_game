@@ -987,7 +987,7 @@ var gioco_liz = (function(undefined) {
     }
 
     public.draw = function(to_redraw) {
-        sound.theme.setVolume(0.3);
+        sound.theme.setVolume(0.1);
         
         if(timeLastDrawn < new Date().getTime() - 2500)finish(false);
         timeLastDrawn = new Date().getTime();
@@ -1090,7 +1090,8 @@ var gioco_liz = (function(undefined) {
     function finish(victoryState){
     	if(!stop){
         	stop = true;
-            if(victoryState)alert("GG, tempo rimanente: "+parseTime(TIME - timer.getElapsedTime()/1000));
+            let millisecondi = (TIME - timer.getElapsedTime())%1000;
+            if(victoryState)alert("GG, tempo rimanente: "+parseTime(TIME - timer.getElapsedTime()/1000)+'.'+millisecondi);
             sound.theme.stop();
             gameCompleted(victoryState);
         }
