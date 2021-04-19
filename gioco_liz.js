@@ -1109,7 +1109,7 @@ var gioco_liz = (function(undefined) {
     };
 
     public.keyPressed = function() {
-        if(keyIsDown(SHIFT))
+        if(keyIsDown(CONTROL))
            new Bullet(seicento.car.front.x, seicento.car.front.y, seicento.car.getDir(), seicento.car.r + 20);
         else
         switch(key){
